@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.List;
 /*
     Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the ith kid has.
 
@@ -13,7 +14,6 @@ import java.util.ArrayList;
                  1 <= extraCandies <= 50
     Edge cases: none
 */
-import java.util.List;
 
 public class KidsWithCandies {
     public static List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
@@ -38,5 +38,6 @@ public class KidsWithCandies {
 
     public static void main(String[] args) {
         System.out.println(kidsWithCandies(new int[] {2,3,5,1,3}, 3));
+
     }
 }
