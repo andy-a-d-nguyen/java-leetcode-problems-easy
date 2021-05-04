@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "KidsWithCandies"
+        "KidsWithCandies",
+        "Shuffle"
     ]
 }
