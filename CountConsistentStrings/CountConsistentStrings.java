@@ -16,15 +16,43 @@
 public class CountConsistentStrings {
     public static int countConsistentStrings(String allowed, String[] words) {
         int count = 0;
+        int wordIndex = 0;
+        int letterIndex = 0;
 
-        for (String word : words) {
-            boolean isConsistent = true;
+        // for (String word : words) {
+        //     boolean isConsistent = true;
 
-            for (char letter : word.toCharArray()) {
-                if (!allowed.contains(String.valueOf(letter))) isConsistent = false;
+        //     for (char letter : word.toCharArray()) {
+        //         if (!allowed.contains(String.valueOf(letter))) isConsistent = false;
+        //     }
+
+        //     if (isConsistent) count++;
+        // }
+
+        while (wordIndex < words.length) {
+            String currentWord = words[wordIndex];
+
+            // iterate through current word using if else statement
+            if (letterIndex < currentWord.length()) {
+                char currentLetter = currentWord.charAt(letterIndex);
+
+                // if current letter in current word is not in allowed, move to next word and reset letter index
+                // otherwise, continue to next letter in current word
+                if (!allowed.contains(String.valueOf(currentLetter))) {
+                    letterIndex = 0;
+                    wordIndex++;
+                } else {
+                    letterIndex++;
+                }
+            // reached end of current word
+            // reset letter index
+            // go to next word
+            // have not encountered a letter not in allowed, therefore increment count
+            } else {
+                letterIndex = 0;
+                wordIndex++;
+                count++;
             }
-
-            if (isConsistent) count++;
         }
 
         return count;
@@ -33,6 +61,6 @@ public class CountConsistentStrings {
     public static void main(String[] args) {
         System.out.println(countConsistentStrings("ab", new String[] {"ad","bd","aaab","baa","badab"}));
         System.out.println(countConsistentStrings("abc", new String[] {"a","b","c","ab","ac","bc","abc"}));
-
+        System.out.println(countConsistentStrings("cad", new String[] {"cc","acd","b","ba","bac","bad","ac","d"}));
     }
 }
